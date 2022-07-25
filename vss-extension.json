@@ -1,0 +1,99 @@
+{
+    "manifestVersion": 1,
+    "id": "Displayhtmlreports",
+    "version": "1.2.55",
+    "name": "Displayhtmlreports",
+    "description": "An extension which lets you visualize HTML reports in Azure Devops as a seperate tab. ",
+    "publisher": "KPMGSOFY",
+    "public": false,
+    "repository": {
+        "type": "git",
+        "uri": "https://github.com/JasperKeijzer"
+    },
+    "screenshots": [
+        {
+            "path": "images/screenshot.png"
+        }
+    ],
+    "content": {
+        "details": {
+            "path": "overview.md"
+        },
+        "license": {
+            "path": "LICENSE"
+        }
+    },
+    "icons": {
+        "default": "images/sofy.jpg"
+    },    
+    "tags": [
+        "Build",
+        "Build Pipeline",
+        "HTML",
+        "HTML Reports"
+    ],
+     "scopes": [
+        "vso.build_execute"
+    ],
+    "categories": [
+        "Azure Pipelines"
+    ],   
+    "targets": [
+        {
+            "id": "Microsoft.VisualStudio.Services"
+        }
+    ],
+    "files": [
+        {
+            "path": "images",
+            "addressable": true          
+        },
+        {
+            "path": "dist",
+            "addressable": true,
+            "packagePath": "scripts"
+        },
+        {
+            "path": "index.html",
+            "addressable": true
+        },
+        {
+            "path": "content",
+            "addressable": true
+        },          
+        {
+            "path": "displayhtmlreport",
+            "addressable": true
+        },  
+        {
+            "path": "node_modules/vss-web-extension-sdk/lib",
+            "addressable": true,
+            "packagePath": "lib"
+        }
+    ],
+    "contributions": [
+        {
+            "id": "build-info-tab",
+            "type": "ms.vss-build-web.build-results-tab",
+            "description": "A tab contributing to build results view",
+            "targets": [
+                "ms.vss-build-web.build-results-view"
+            ],
+            "properties": {
+                "name": "HTML Reports",
+                "uri": "index.html",
+                "supportsTasks": ["ed093cff-bf54-470d-a362-465239c4e825"]
+            }
+        },
+        {
+            "id": "displayhtmlreport",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "displayhtmlreport"
+            }
+        }
+    ]
+}

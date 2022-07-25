@@ -1,0 +1,14 @@
+node_modules/
+displayhtmlreport/**/node_modules/
+content/
+dist/tab.js
+
+displayhtmlreport/index.js
+
+*.vsix
+
+displayhtmlreport/.DS_Store
+.DS_Store
+
+*.env
+.vscode/

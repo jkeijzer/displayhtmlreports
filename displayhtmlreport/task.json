@@ -1,0 +1,39 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Microsoft/azure-pipelines-task-lib/master/tasks.schema.json",
+    "id": "ed093cff-bf54-470d-a362-465239c4e825",
+    "name": "displayhtmlreports",
+    "friendlyName": "displayhhtmlreports",
+    "description": "This task can be used to display html reports in azdo.",
+    "helpMarkDown": "",
+    "category": "Utility",
+    "author": "JasperKeijzer",
+    "version": {
+        "Major": 1,
+        "Minor": 0,
+        "Patch": 55
+    },
+    "instanceNameFormat": "displayhtmlreports",
+    "inputs": [
+        {
+            "name": "htmlPath",
+            "type": "string",
+            "label": "htmlPath",
+            "defaultValue": "",
+            "required": true,
+            "helpMarkDown": "Folder with html reports"
+        },
+        {
+            "name": "reportTitle",
+            "type": "string",
+            "label": "Report Title",
+            "defaultValue": "HTML Reports",
+            "required": false,
+            "helpMarkDown": "Title for the reports"
+        }
+    ],
+    "execution": {
+        "Node10": {
+            "target": "index.js"
+        }
+    }
+}
