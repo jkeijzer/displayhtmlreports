@@ -1,7 +1,7 @@
 {
     "manifestVersion": 1,
     "id": "Displayhtmlreports",
-    "version": "1.2.55",
+    "version": "1.2.74",
     "name": "Displayhtmlreports",
     "description": "An extension which lets you visualize HTML reports in Azure Devops as a seperate tab. ",
     "publisher": "KPMGSOFY",

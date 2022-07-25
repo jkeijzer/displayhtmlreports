@@ -45,12 +45,14 @@ import path = require('path')
             }
         }
 
-        const reportTitle: string | undefined = tl.getInput('reportTitle', false);
-        tl.setVariable('reportTitle', reportTitle!)
-        console.log( "Setting report title: '%s", reportTitle! )
+        //Add Metadata to File
+        const metaPath = path.join(__dirname, 'metadata.json' );
+        let metadata = {
+            reportTitle: tl.getInput('reportTitle', false) || 'HTML Reports'
+        }
 
-        console.log("Listing all Env Variables")
-        console.log(process.env);
+        fs.writeFileSync(metaPath, JSON.stringify(metadata));
+        tl.addAttachment('metadata', 'metadata.json', metaPath)
 
         console.log( "We are done!" );
     }

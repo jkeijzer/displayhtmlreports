@@ -66,9 +66,22 @@ export class InfoTab extends Controls.BaseControl {
 					}
 				});
 
-				var reportTitle = process.env['reportTitle'] || 'Reports';
-				$('#reportTitle').text(reportTitle);
-
+				// Get Metadata
+				console.log('Get Metadata...');
+				taskClient.getPlanAttachments(vsoContext.project.id, "build", build.orchestrationPlan.planId, "metadata").then((taskAttachment) => {
+					if (taskAttachment.length > 0) {
+						var metaDataFile = taskAttachment[0]
+						//Get Content
+						taskClient.getAttachmentContent(vsoContext.project.id, "build", build.orchestrationPlan.planId, metaDataFile.timelineId, metaDataFile.recordId, "metadata", metaDataFile.name).then((attachementContent) => {
+							var data = JSON.parse(this.arrayBufferToString(attachementContent));
+							var newTitle = data.reportTitle || 'Reports';
+							$("#reportTitle").text(newTitle);
+						});
+					}
+					else {
+						console.log('No metadata found...');
+					}
+				});
 			});
 		}
 	}
